@@ -34,3 +34,20 @@ JOIN schools ON
 schools.id=educations."schoolId"
 WHERE educations.status='finished'
 AND users.id=30;
+
+--QUESTÃO 4
+SELECT
+	users.id,
+	users.name,
+	roles.name AS roles,
+	companies.name AS company,
+	experiences."startDate" AS "startDate"
+FROM experiences
+JOIN users ON
+users.id=experiences."userId"
+JOIN roles ON
+roles.id=experiences."roleId" 
+JOIN companies ON
+companies.id=experiences."companyId"
+WHERE experiences."endDate" IS NULL
+AND users.id=50;
